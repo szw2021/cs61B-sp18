@@ -6,7 +6,7 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
-    public static double G = 6.67 * Math.pow(10, -11);
+    private static double G = 6.67 * Math.pow(10, -11);
 
     public Planet(double xP, double yP, double xV,
                   double yV, double m, String img) {
@@ -79,11 +79,4 @@ public class Planet {
         StdDraw.picture(this.xxPos, this.yyPos, "./images/" + imgFileName);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        Planet planet = (Planet) obj;
-        boolean res =  xxPos == planet.xxPos && yyPos == planet.yyPos && xxVel == planet.xxVel && yyVel == planet.yyVel
-                && mass == planet.mass && imgFileName.equals(planet.imgFileName);
-        return res;
-    }
 }
