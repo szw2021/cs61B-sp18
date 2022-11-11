@@ -66,6 +66,15 @@ public class Planet {
         return netForce;
     }
 
+    public void update(double dt, double fx, double fy) {
+        double FA_X = fx / mass;
+        double FA_Y = fy / mass;
+        double V_X = xxVel + dt * FA_X;
+        double V_Y = yyVel + dt * FA_Y;
+        xxPos = xxPos + dt * V_X;
+        yyPos = yyPos + dt * V_Y;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
