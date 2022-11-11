@@ -17,7 +17,7 @@ public class ArrayDeque<T> {
         int first = (prev + 1) % count;
         for (int i = 0; i < size; i++) {
             newDeque[i] = Deque[first];
-            first = (first + 1) % size;
+            first = (first + 1) % count;
         }
         Deque = newDeque;
         count = count * 2;
@@ -30,7 +30,7 @@ public class ArrayDeque<T> {
         int first = (prev + 1) % count;
         for (int i = 0; i < size; i++) {
             newDeque[i] = Deque[first];
-            first = (first + 1) % size;
+            first = (first + 1) % count;
         }
         Deque = newDeque;
         count = count / 2;
@@ -88,7 +88,7 @@ public class ArrayDeque<T> {
             prev -= count;
         }
         T item = Deque[prev];
-        if (size < count / 4) {
+        if (size < (count / 4)) {
             resizeDown();
         }
         return item;
@@ -106,7 +106,7 @@ public class ArrayDeque<T> {
             next += count;
         }
         T item = Deque[next];
-        if (size < count / 4) {
+        if (size < (count / 4)) {
             resizeDown();
         }
         return item;
