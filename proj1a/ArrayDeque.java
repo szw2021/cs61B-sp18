@@ -12,7 +12,7 @@ public class ArrayDeque<T> {
 
     }
 
-    public void resize() {
+    private void resize() {
         T[] newDeque = (T[]) new Object[count * 2];
         int first = (prev + 1) % size;
         for (int i = 0; i < size; i++) {
@@ -65,6 +65,11 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) {
+            System.out.println("Deque is Empty");
+            return null;
+        }
+        size--;
         ++prev;
         if (prev >= count) {
             prev -= count;
@@ -75,6 +80,11 @@ public class ArrayDeque<T> {
 
 
     public T removeLast() {
+        if (size == 0) {
+            System.out.println("Deque is Empty");
+            return null;
+        }
+        size--;
         --next;
         if (next < 0) {
             next += count;

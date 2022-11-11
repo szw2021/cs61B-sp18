@@ -11,6 +11,8 @@ public class ArrayDequeTest {
         deque.addLast(8);
         deque.addFirst(0);
 //        deque.addLast(9);
+        //deque.printDeque();
+        deque.removeFirst();
         deque.printDeque();
     }
 }
