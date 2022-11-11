@@ -75,6 +75,9 @@ public class Planet {
         yyPos = yyPos + dt * V_Y;
     }
 
+    public void draw() {
+        StdDraw.picture(this.xxPos, this.yyPos, "./images/" + imgFileName);
+    }
 
     @Override
     public boolean equals(Object obj) {
