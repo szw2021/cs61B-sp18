@@ -1,6 +1,6 @@
 public class ArrayDeque<T> {
 
-    private T[] Deque;
+    private T[] deque;
     private int next = 4;
     private int prev = 3;
     private int size = 0;
@@ -8,7 +8,7 @@ public class ArrayDeque<T> {
 
 
     public ArrayDeque() {
-        Deque = (T[]) new Object[8];
+        deque = (T[]) new Object[8];
 
     }
 
@@ -16,10 +16,10 @@ public class ArrayDeque<T> {
         T[] newDeque = (T[]) new Object[count * 2];
         int first = (prev + 1) % count;
         for (int i = 0; i < size; i++) {
-            newDeque[i] = Deque[first];
+            newDeque[i] = deque[first];
             first = (first + 1) % count;
         }
-        Deque = newDeque;
+        deque = newDeque;
         count = count * 2;
         next = size;
         prev = count - 1;
@@ -29,10 +29,10 @@ public class ArrayDeque<T> {
         T[] newDeque = (T[]) new Object[count / 2];
         int first = (prev + 1) % count;
         for (int i = 0; i < size; i++) {
-            newDeque[i] = Deque[first];
+            newDeque[i] = deque[first];
             first = (first + 1) % count;
         }
-        Deque = newDeque;
+        deque = newDeque;
         count = count / 2;
         next = size;
         prev = count - 1;
@@ -44,7 +44,7 @@ public class ArrayDeque<T> {
             resize();
         }
         size++;
-        Deque[prev--] = item;
+        deque[prev--] = item;
         if (prev < 0) {
             prev += count;
         }
@@ -55,7 +55,7 @@ public class ArrayDeque<T> {
             resize();
         }
         size++;
-        Deque[next++] = item;
+        deque[next++] = item;
         if (next >= count) {
             next -= count;
         }
@@ -72,7 +72,7 @@ public class ArrayDeque<T> {
     public void printDeque() {
         int first = (prev + 1) % count;
         for (int i = 0; i < size; i++) {
-            System.out.println(Deque[first]);
+            System.out.println(deque[first]);
             first = (first + 1) % count;
         }
     }
@@ -87,7 +87,7 @@ public class ArrayDeque<T> {
         if (prev >= count) {
             prev -= count;
         }
-        T item = Deque[prev];
+        T item = deque[prev];
         if (size < (count / 4)) {
             resizeDown();
         }
@@ -105,7 +105,7 @@ public class ArrayDeque<T> {
         if (next < 0) {
             next += count;
         }
-        T item = Deque[next];
+        T item = deque[next];
         if (size < (count / 4)) {
             resizeDown();
         }
@@ -114,7 +114,7 @@ public class ArrayDeque<T> {
 
     public T get(int index) {
         int first = (prev + 1) % count;
-        return Deque[(index + first) % count];
+        return deque[(index + first) % count];
     }
 
 }
