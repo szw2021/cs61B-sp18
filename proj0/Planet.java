@@ -6,6 +6,8 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
+    public static double G = 6.67 * Math.pow(10, -11);
+
     public Planet(double xP, double yP, double xV,
                   double yV, double m, String img) {
         xxPos = xP;
@@ -25,5 +27,51 @@ public class Planet {
         this.imgFileName = p.imgFileName;
     }
 
+    public double calcDistance(Planet p) {
+        double square = Math.pow(xxPos - p.xxPos, 2) + Math.pow(yyPos - p.yyPos, 2);
+        return Math.sqrt(square);
+    }
 
+    public double calcForceExertedBy(Planet p) {
+        return G * mass * p.mass / (Math.pow(calcDistance(p), 2));
+    }
+
+    public double calcForceExertedByX(Planet p) {
+        return calcForceExertedBy(p) * (p.xxPos - xxPos) / calcDistance(p);
+    }
+
+    public double calcForceExertedByY(Planet p) {
+        return calcForceExertedBy(p) * (p.yyPos - yyPos) / calcDistance(p);
+    }
+
+    public double calcNetForceExertedByX(Planet[] planetList) {
+        double netForce = 0;
+        for (Planet planet : planetList) {
+            if (planet.equals(this)) {
+                continue;
+            }
+            netForce += calcForceExertedByX(planet);
+        }
+        return netForce;
+    }
+
+    public double calcNetForceExertedByY(Planet[] planetList) {
+        double netForce = 0;
+        for (Planet planet : planetList) {
+            if (planet.equals(this)) {
+                continue;
+            }
+            netForce += calcForceExertedByY(planet);
+        }
+        return netForce;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        Planet planet = (Planet) obj;
+        boolean res =  xxPos == planet.xxPos && yyPos == planet.yyPos && xxVel == planet.xxVel && yyVel == planet.yyVel
+                && mass == planet.mass && imgFileName.equals(planet.imgFileName);
+        return res;
+    }
 }
