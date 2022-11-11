@@ -121,14 +121,13 @@ public class IntList {
         IntList a = A;
         IntList b = A.rest;
         a.rest = null;
-        while (b.rest != null) {
+        while (b != null) {
             IntList c = b.rest;
             b.rest = a;
             a = b;
             b = c;
         }
-        b.rest = a;
-        return b;
+        return a;
     }
 
 
