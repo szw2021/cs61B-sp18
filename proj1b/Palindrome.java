@@ -9,7 +9,7 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
-        if(word.length() == 0 || word.length() == 1) {
+        if (word.length() == 0 || word.length() == 1) {
             return true;
         }
         Deque<Character> deque = wordToDeque(word);
@@ -22,7 +22,7 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc) {
-        if(word.length() == 0 || word.length() == 1) {
+        if (word.length() == 0 || word.length() == 1) {
             return true;
         }
         Deque<Character> deque = wordToDeque(word);
