@@ -20,7 +20,7 @@ public class TestArrayDequeGold {
                 studentArrayDeque.addFirst(i);
                 arrayDequeSolution.addFirst(i);
                 sb.append("addFirst(").append(i).append(")\n");
-                assertEquals(sb.toString(), studentArrayDeque.get(0), studentArrayDeque.get(0));
+                assertEquals(sb.toString(), arrayDequeSolution.get(0), studentArrayDeque.get(0));
             } else if (numberBetweenZeroAndOne < 0.5){
                 num++;
                 studentArrayDeque.addLast(i);
