@@ -20,13 +20,13 @@ public class TestArrayDequeGold {
                 studentArrayDeque.addFirst(i);
                 arrayDequeSolution.addFirst(i);
                 sb.append("addFirst(").append(i).append(")\n");
-                assertEquals(sb.toString(), studentArrayDeque.get(0), arrayDequeSolution.get(0));
+                assertEquals(sb.toString(), studentArrayDeque.get(0), studentArrayDeque.get(0));
             } else if (numberBetweenZeroAndOne < 0.5){
                 num++;
                 studentArrayDeque.addLast(i);
                 arrayDequeSolution.addLast(i);
                 sb.append("addLast(").append(i).append(")\n");
-                assertEquals(sb.toString(), studentArrayDeque.get(num - 1), arrayDequeSolution.get(num - 1));
+                assertEquals(sb.toString(), arrayDequeSolution.get(num - 1), studentArrayDeque.get(num - 1));
             } else if (numberBetweenZeroAndOne < 0.75) {
                 if (num == 0) {
                     continue;
@@ -35,7 +35,7 @@ public class TestArrayDequeGold {
                 Integer stu = studentArrayDeque.removeFirst();
                 Integer sol = arrayDequeSolution.removeFirst();
                 sb.append("removeFirst()\n");
-                assertEquals(sb.toString(), stu, sol);
+                assertEquals(sb.toString(), sol, stu);
             } else {
                 if (num == 0) {
                     continue;
@@ -44,7 +44,7 @@ public class TestArrayDequeGold {
                 Integer stu = studentArrayDeque.removeLast();
                 Integer sol = arrayDequeSolution.removeLast();
                 sb.append("removeLast()\n");
-                assertEquals(sb.toString(), stu, sol);
+                assertEquals(sb.toString(), sol, stu);
             }
         }
 
