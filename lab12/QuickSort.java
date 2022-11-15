@@ -76,6 +76,7 @@ public class QuickSort {
         Queue<Item> items1 = quickSort(less);
         Queue<Item> items3 = quickSort(greater);
         Queue<Item> catenate = catenate(items1, equal);
-        return catenate(catenate, items3);
+        items = catenate(catenate, items3);
+        return items;
     }
 }

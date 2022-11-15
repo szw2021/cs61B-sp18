@@ -83,6 +83,7 @@ public class MergeSort {
             Queue<Item> item = mergeSortedQueues(queues.dequeue(), queues.dequeue());
             queues.enqueue(item);
         }
-        return queues.peek();
+        items = queues.peek();
+        return items;
     }
 }
