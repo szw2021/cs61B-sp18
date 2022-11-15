@@ -49,16 +49,15 @@ public class QuickSort {
             Queue<Item> unsorted, Item pivot,
             Queue<Item> less, Queue<Item> equal, Queue<Item> greater) {
         // Your code here!
-        while (!unsorted.isEmpty()) {
-            Item item = unsorted.dequeue();
-            if (item.compareTo(pivot) > 0) {
-                greater.enqueue(item);
-            } else if (item.compareTo(pivot) < 0) {
-                less.enqueue(item);
-            } else {
-                equal.enqueue(item);
+            for (Item item : unsorted) {
+                if (item.compareTo(pivot) > 0) {
+                    greater.enqueue(item);
+                } else if (item.compareTo(pivot) < 0) {
+                    less.enqueue(item);
+                } else {
+                    equal.enqueue(item);
+                }
             }
-        }
     }
 
     /** Returns a Queue that contains the given items sorted from least to greatest. */
